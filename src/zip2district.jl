@@ -41,9 +41,9 @@ function get_districts(dat, zipdata, zip2)
         if length(indcs1) > 1
             districts = "[" 
             for idx in indcs1 
-                districts *= string(zip2[idx, :district], ",")
+                districts *= string("\"", zip2[idx, :district], "\",")
             end
-            districts = districts[1:(end-1)] * "]"
+            districts = districts[1:(end-2)] * "\"]"
             res[i, :district] = districts 
         
         elseif length(indcs1) == 1
